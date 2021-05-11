@@ -20,7 +20,7 @@
 
 ## added this for fixing pgdg-common repo issue: signature could not be verified for pgdg-common
 - name: verify repo list
-  command: "yum repolist -v -y"
+  command: "yum repolist -y"
   when: ansible_os_family|lower == 'redhat'
 
 #- name: Import PGDG key
