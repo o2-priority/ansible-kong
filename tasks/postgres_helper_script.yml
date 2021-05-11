@@ -13,6 +13,10 @@
   when: ansible_os_family|lower == 'debian'
 
 - name: Add postgresql yum respository
+  command: yum update -y
+  when: ansible_os_family|lower == 'redhat'
+
+- name: Add postgresql yum respository
   yum:
     name: "{{ postgresql_yum_repo_package }}"
     state: present
