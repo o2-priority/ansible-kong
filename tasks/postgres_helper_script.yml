@@ -12,6 +12,12 @@
     state:  present
   when: ansible_os_family|lower == 'debian'
 
+- name: Import PGDG key
+  rpm_key:
+    state: present
+    key: https://ftp.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG
+  when: ansible_os_family|lower == 'redhat'
+
 - name: Add postgresql yum respository
   yum:
     name: "{{ postgresql_yum_repo_package }}"
