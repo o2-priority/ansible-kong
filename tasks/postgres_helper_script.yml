@@ -12,29 +12,20 @@
     state:  present
   when: ansible_os_family|lower == 'debian'
 
-#- name: Yum update before postgres install
-#  command: yum update -y
-#  when: ansible_os_family|lower == 'redhat'
-
 - name: Add postgresql yum respository
   yum:
     name: "{{ postgresql_yum_repo_package }}"
     state: present
-    update_cache: true
   when: ansible_os_family|lower == 'redhat'
 
-- name: Install postgresql client package
-  yum:
-    name: "{{ postgresql_client_package }}"
-    state: present
-    update_cache: true
-  when: ansible_os_family|lower == 'redhat'
+- name: Yum update before install postgresql client
+  command: "yum update -y"
+  when: ansible_os_family|lower == 'debian'
 
 - name: Install postgresql client package
   package:
     name: "{{ postgresql_client_package }}"
     state: present
-  when: ansible_os_family|lower == 'debian'
 
 - name: Deploy postgres helper script
   template:
