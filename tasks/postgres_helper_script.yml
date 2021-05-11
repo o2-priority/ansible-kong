@@ -18,15 +18,16 @@
     state: present
   when: ansible_os_family|lower == 'redhat'
 
-#- name: Yum update before install postgresql client
-#  command: "yum update -y"
-#  when: ansible_os_family|lower == 'redhat'
-
-- name: Import PGDG key
-  rpm_key:
-    state: present
-    key: https://ftp.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG
+## added this for fixing pgdg-common repo issue: signature could not be verified for pgdg-common
+- name: verify repo list
+  command: "yum repolist -v -y"
   when: ansible_os_family|lower == 'redhat'
+
+#- name: Import PGDG key
+#  rpm_key:
+#    state: present
+#    key: https://ftp.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG
+#  when: ansible_os_family|lower == 'redhat'
 
 - name: Install postgresql client package
   package:
