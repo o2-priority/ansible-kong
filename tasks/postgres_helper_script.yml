@@ -16,6 +16,7 @@
   yum:
     name: "{{ postgresql_yum_repo_package }}"
     state: present
+    update_cache: true
   when: ansible_os_family|lower == 'redhat'
 
 - name: Install postgresql client package
