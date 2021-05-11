@@ -20,7 +20,7 @@
 
 - name: Yum update before install postgresql client
   command: "yum update -y"
-  when: ansible_os_family|lower == 'debian'
+  when: ansible_os_family|lower == 'redhat'
 
 - name: Install postgresql client package
   package:
