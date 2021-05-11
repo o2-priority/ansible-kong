@@ -12,9 +12,9 @@
     state:  present
   when: ansible_os_family|lower == 'debian'
 
-- name: Yum update before postgres install
-  command: yum update -y
-  when: ansible_os_family|lower == 'redhat'
+#- name: Yum update before postgres install
+#  command: yum update -y
+#  when: ansible_os_family|lower == 'redhat'
 
 - name: Add postgresql yum respository
   yum:
