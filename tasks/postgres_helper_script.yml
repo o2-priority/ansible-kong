@@ -24,9 +24,17 @@
   when: ansible_os_family|lower == 'redhat'
 
 - name: Install postgresql client package
+  yum:
+    name: "{{ postgresql_client_package }}"
+    state: present
+    update_cache: true
+  when: ansible_os_family|lower == 'redhat'
+
+- name: Install postgresql client package
   package:
     name: "{{ postgresql_client_package }}"
     state: present
+  when: ansible_os_family|lower == 'debian'
 
 - name: Deploy postgres helper script
   template:
