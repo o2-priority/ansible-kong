@@ -95,8 +95,6 @@ postgresql_apt_key_url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
 postgresql_apt_repo: "deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_distribution_release }}-pgdg main"
 postgresql_yum_repo_package: https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 
-"https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm"
-
 #----  Cassandra  ----
 kong_cassandra_host: "{{ ansible_default_ipv4.address }}"
 kong_cassandra_contact_points:
