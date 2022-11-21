@@ -14,7 +14,7 @@ worker_rlimit_nofile {{ '${{' }}WORKER_RLIMIT}};
 
 events {
 > if nginx_optimizations then
-    worker_connections {{ '${{' }}WORKER_CONNECTIONS}};
+    worker_connections {{ kong_nginx_worker_connections }};
     multi_accept on;
 > end
 }
