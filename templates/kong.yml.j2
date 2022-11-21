@@ -409,6 +409,9 @@ nginx: |
         log_by_lua_block {
           kong.log()
         }
+        location /nginx_status {
+            stub_status on;
+        }
       }
 
       location /robots.txt {
