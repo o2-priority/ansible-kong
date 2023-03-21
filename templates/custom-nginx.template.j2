@@ -111,7 +111,6 @@ server {
 location /nginx_status {
     stub_status on;
     allow 10.0.0.0/8;
-    allow {{ nat_gateway_ip }}/32;
     deny all;
   }
   location = /kong_error_handler {
