@@ -91,7 +91,7 @@ kong_pg_database:     kong
 kong_pg_ssl:          "off"
 kong_pg_ssl_verify:   "off"
 
-postgresql_client_package: postgresql-client-11
+postgresql_client_package: postgresql-client-12
 postgresql_apt_key_url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
 postgresql_apt_repo: "deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_distribution_release }}-pgdg main"
 postgresql_yum_repo_package: https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
