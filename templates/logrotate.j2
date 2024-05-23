@@ -2,7 +2,7 @@
     {{ kong_logrotate_frequency|default('weekly') }}
     rotate {{ kong_logrotate_rotate|default(5) }}
     missingok
-    maxsize {{ kong_logrotate_maxsize|default('500M') }}
+    maxsize {{ kong_logrotate_maxsize|default('100M') }}
     nodateext
     notifempty
     sharedscripts
