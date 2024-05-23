@@ -68,24 +68,6 @@
     owner: root
     group: root
 
-- name: Create filebeat restart script
-  template:
-    src:   filebeatrestart.j2
-    dest:  /etc/filebeatrestart.sh
-    mode:  0755
-
-- name: Create logrotate config 15min
-  template:
-    src:   logrotatemax.j2
-    dest:  /etc/logrotatemax
-    mode:  0644
-
-- name: Add cron job for running the cron script every 10 minutes
-  cron:
-      name: "cron_restart_filebeat"
-      minute: "*/15"
-      job: "/etc/filebeatrestart.sh"
-
 - name: Update logrotate cron script
   template:
     src:  cron.logrotate.j2

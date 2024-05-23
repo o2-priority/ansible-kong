@@ -10,5 +10,6 @@
     delaycompress
     postrotate
         [ ! -f {{ kong_prefix_dir }}/pids/nginx.pid ] || kill -USR1 $(cat {{ kong_prefix_dir }}/pids/nginx.pid)
+        systemctl restart filebeat
     endscript
 }
