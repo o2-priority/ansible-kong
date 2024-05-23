@@ -1,6 +1,6 @@
 {{ kong_log_dir }}/*.log {
     {{ kong_logrotate_frequency|default('weekly') }}
-    rotate {{ kong_logrotate_rotate|default(5) }}
+    rotate {{ kong_logrotate_rotate|default(0) }}
     missingok
     maxsize {{ kong_logrotate_maxsize|default('100M') }}
     nodateext
@@ -9,6 +9,7 @@
     compress
     delaycompress
     postrotate
+        /bin/logger -t logrotate "kong postrotate"
         [ ! -f {{ kong_prefix_dir }}/pids/nginx.pid ] || kill -USR1 $(cat {{ kong_prefix_dir }}/pids/nginx.pid)
         systemctl restart filebeat
     endscript
