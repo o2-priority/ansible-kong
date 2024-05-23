@@ -73,9 +73,8 @@
     src:   filebeatrestart.j2
     dest:  /etc/filebeatrestart.sh
     mode:  0755
-  when: is_sweb
 
-- name: Create logrotate config 10min
+- name: Create logrotate config 15min
   template:
     src:   logrotatemax.j2
     dest:  /etc/logrotatemax
@@ -84,7 +83,7 @@
 - name: Add cron job for running the cron script every 10 minutes
   cron:
       name: "cron_restart_filebeat"
-      minute: "*/10"
+      minute: "*/15"
       job: "/etc/filebeatrestart.sh"
 
 - name: Update logrotate cron script

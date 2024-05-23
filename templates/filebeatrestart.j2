@@ -7,7 +7,7 @@ EXITVALUE=$?
 if [ $EXITVALUE != 0 ]; then
     /usr/bin/logger -t logrotate "Logrotate exited with error status $EXITVALUE"
 else
-    /usr/bin/logger -t logrotate "Logrotate maxsize 10 min completed successfully"
+    /usr/bin/logger -t logrotate "Logrotate maxsize 15 min completed successfully"
 fi
 
 # Restart the filebeat service

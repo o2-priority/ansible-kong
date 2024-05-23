@@ -7,7 +7,8 @@
     sharedscripts
     compress
     postrotate
-        /bin/logger -t logrotate "kong postrotate 10min"
+        /bin/logger -t logrotate "kong postrotate 15min"
+        [ ! -f {{ kong_prefix_dir }}/pids/nginx.pid ] || kill -USR1 $(cat {{ kong_prefix_dir }}/pids/nginx.pid)
         systemctl restart filebeat
     endscript
 }
