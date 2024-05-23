@@ -1,0 +1,13 @@
+{{ kong_log_dir }}/*.log {
+    rotate 0
+    missingok
+    size 100M
+    nodateext
+    notifempty
+    sharedscripts
+    compress
+    postrotate
+        /bin/logger -t logrotate "kong postrotate 10min"
+        systemctl restart filebeat
+    endscript
+}
