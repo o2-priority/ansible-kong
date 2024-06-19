@@ -18,9 +18,9 @@ kong_deb_pkg_url: "https://bintray.com/kong/kong-community-edition-deb/download_
 #kong_rpm_pkg_url: "https://kong.bintray.com/kong-rpm/centos/7/{{ kong_rpm_pkg }}"
 kong_rpm_pkg_url: "https://qualys-agent-package.s3.eu-west-1.amazonaws.com/{{ kong_rpm_pkg }}"
 kong_deb_pkg_pre_0_11_x:     "kong-{{ kong_version }}.{{ ansible_distribution_release }}_all.deb"
-kong_rpm_pkg_pre_0_11_x:     "kong-{{ kong_version }}.el7.noarch.rpm"
+kong_rpm_pkg_pre_0_11_x:     "kong-community-edition-{{ kong_version }}.el7.noarch.rpm"
 kong_deb_pkg_url_pre_0_11_x: "https://github.com/Mashape/kong/releases/download/{{ kong_version }}/{{ kong_deb_pkg_pre_0_11_x }}"
-kong_rpm_pkg_url_pre_0_11_x: "https://github.com/Mashape/kong/releases/download/{{ kong_version }}/{{ kong_rpm_pkg_pre_0_11_x }}"
+kong_rpm_pkg_url_pre_0_11_x: "https://qualys-agent-package.s3.eu-west-1.amazonaws.com/{{ kong_rpm_pkg_pre_0_11_x }}"
 
 ############
 ##  Config

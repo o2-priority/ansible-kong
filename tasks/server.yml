@@ -17,7 +17,7 @@
     kong_deb_pkg_url: "{{ kong_deb_pkg_url_pre_0_11_x }}"
     kong_rpm_pkg_url: "{{ kong_rpm_pkg_url_pre_0_11_x }}"
     kong_deb_pkg:     "kong-{{ kong_version }}.{{ ansible_distribution_release }}_all.deb"
-    kong_rpm_pkg:     "kong-{{ kong_version }}.el7.noarch.rpm"
+    kong_rpm_pkg:     "kong-community-edition-{{ kong_version }}.el7.noarch.rpm""
   when: kong_version is version_compare('0.11.0', '<')
 
 # Debian
