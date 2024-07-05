@@ -68,7 +68,6 @@
     owner: root
     group: root
 
-
 - name: Update logrotate cron script
   template:
     src:  cron.logrotate.j2

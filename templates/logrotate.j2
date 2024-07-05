@@ -1,14 +1,15 @@
 {{ kong_log_dir }}/*.log {
     {{ kong_logrotate_frequency|default('weekly') }}
-    rotate {{ kong_logrotate_rotate|default(5) }}
+    rotate {{ kong_logrotate_rotate|default(0) }}
     missingok
-    maxsize {{ kong_logrotate_maxsize|default('500M') }}
+    maxsize {{ kong_logrotate_maxsize|default('100M') }}
     nodateext
     notifempty
     sharedscripts
     compress
-    delaycompress
     postrotate
-        [ ! -f {{ kong_prefix_dir }}/pids/nginx.pid ] || kill -USR1 $(cat {{ kong_prefix_dir }}/pids/nginx.pid)
+        /bin/logger -t logrotate "kong postrotate v1";
+        systemctl restart filebeat;
+        [ ! -f /usr/local/kong/pids/nginx.pid ] || kill -USR1 $(cat /usr/local/kong/pids/nginx.pid)
     endscript
 }

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 /usr/bin/logger -t logrotate "sleeping random"
-sleep $((1 + RANDOM % 1800))
+sleep $((1 + RANDOM % 300))
 /usr/bin/logger -t logrotate "finished sleep"
 
 /usr/sbin/logrotate -v -s /var/lib/logrotate/logrotate.status /etc/logrotate.conf >> /var/log/logrotate.log
